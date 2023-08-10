@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamevault_app/core/models/data.dart';
+import 'package:gamevault_app/features/HomeScreen/representation/views/widgets/featured_games_pageview.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -8,20 +8,22 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height / 2,
-          width: MediaQuery.of(context).size.width,
+        const FeaturedGamesPageView(),
+        Align(
+          alignment: Alignment.bottomCenter,
           child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  games[0].coverImage.url,
-                ),
+            height: MediaQuery.of(context).size.height * 0.8,
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF232d3b), Colors.transparent],
+                stops: [0.65, 1],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
