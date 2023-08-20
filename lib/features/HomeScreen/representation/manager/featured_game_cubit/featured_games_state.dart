@@ -4,3 +4,6 @@ part of 'featured_games_cubit.dart';
 sealed class FeaturedGamesState {}
 
 final class FeaturedGamesInitial extends FeaturedGamesState {}
+final class FeaturedGamesChange extends FeaturedGamesState {}
+
+

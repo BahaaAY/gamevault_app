@@ -12,14 +12,21 @@ class FeaturedGamesPageView extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 2,
       width: MediaQuery.of(context).size.width,
       child: PageView.builder(
-          itemCount:
-              BlocProvider.of<FeaturedGamesCubit>(context).gamesList.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: ((context, index) {
+        controller: BlocProvider.of<FeaturedGamesCubit>(context).featuredGamesController,
+        itemCount:
+            BlocProvider.of<FeaturedGamesCubit>(context).gamesList.length,
+        scrollDirection: Axis.horizontal,
+        onPageChanged: (value) {
+            BlocProvider.of<FeaturedGamesCubit>(context).changeIndex(value);
+        },
+        itemBuilder: (
+          (context, index) {
             return FeaturedGameItem(
               index: index,
             );
-          })),
+          }
+        ),
+      ),
     );
   }
 }

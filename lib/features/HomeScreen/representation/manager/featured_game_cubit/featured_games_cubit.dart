@@ -8,4 +8,22 @@ class FeaturedGamesCubit extends Cubit<FeaturedGamesState> {
   FeaturedGamesCubit() : super(FeaturedGamesInitial());
 
   final gamesList = games;
+  int _index = 0; 
+
+  PageController featuredGamesController =PageController(
+  );
+
+  void changeIndex(int index)
+  {
+   
+    _index = index;
+     print("Index : ${_index}" );
+    emit(FeaturedGamesChange());
+  }
+
+  Game getCurrentFeatured()
+  {
+    return gamesList[_index];
+  }
+  
 }
