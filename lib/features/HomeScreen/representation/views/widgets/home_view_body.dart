@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,6 +6,7 @@ import 'package:gamevault_app/features/HomeScreen/representation/views/widgets/f
 import 'custom_appbar.dart';
 import 'featured_game_info.dart';
 import 'gradient_bg.dart';
+import 'scrollable_games_list_item.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -45,33 +45,14 @@ class TopLayer extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.27,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(12.w),
-                    ),
-                    child: AspectRatio(
-                      aspectRatio: 9 / 16,
-                      child: CachedNetworkImage(
-                          fit: BoxFit.cover, imageUrl: games[0].coverImage.url),
-                    ),
-                  ),
-                  Text(
-                    games[0].title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
+            ScrollableGamesListItem(games: games, showTitle: true,),
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
