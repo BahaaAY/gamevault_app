@@ -7,16 +7,16 @@ import 'package:gamevault_app/features/HomeScreen/representation/views/widgets/s
 
 class ScrollableGamesListView extends StatelessWidget {
   const ScrollableGamesListView({
-    super.key,
+    super.key, required this.showTitle, required this.games,
   });
+  final bool showTitle;
+  final List<Game> games ;
 
 
   @override
   Widget build(BuildContext context) {
-    List<Game> games = BlocProvider.of<ScrollableGamesCubit>(context).gamesList;
     return SizedBox(
-    
-      height: 200.h,
+      height: MediaQuery.of(context).size.height * 0.25,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: games.length,
@@ -26,7 +26,7 @@ class ScrollableGamesListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return ScrollableGamesListItem(
               game: games[index],
-              showTitle: true,
+              showTitle: showTitle,
             );
           }),
     );

@@ -14,9 +14,9 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return  const Stack(
       children: [
-        FeaturedGamesPageView(),
+        FeaturedGamesPageView(), 
         GradientBackground(),
         TopLayer(),
       ],
@@ -32,28 +32,47 @@ class TopLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomAppBar(),
-            SizedBox(
-              height: 130.h,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            child: const CustomAppBar(),
+          ),
+          const Spacer(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            child: const FeaturedGameInfo(),
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.only(start: 12.w),
+            child:  ScrollableGamesListView(
+              games:BlocProvider.of<ScrollableGamesCubit>(context).gamesList1 ,
+              showTitle: true,
             ),
-            const FeaturedGameInfo(),
-            SizedBox(
-              height: 16.h,
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            child: const FeaturedGameBanner(),
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.only(start: 12.w),
+            child:  ScrollableGamesListView(
+              games:BlocProvider.of<ScrollableGamesCubit>(context).gamesList2 ,
+              showTitle: false,
             ),
-            BlocProvider(
-              create: (context) => ScrollableGamesCubit(),
-              child: const ScrollableGamesListView(),
-            ),
-            FeaturedGameBanner(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
-

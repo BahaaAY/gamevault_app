@@ -58,15 +58,17 @@ List<Game> games2 = [
     "Rockstar Games",
   ),
   Game(
-    "The Last of Us Part II",
-    GameImage("https://mvpo.us/img/P6253.jpg", ""),
+    "Forza Horizon 5",
+    GameImage(
+        "https://assets-prd.ignimgs.com/2021/08/24/forza-horizon-5-button-fin-1629830068379.jpg",
+        ""),
     "",
     "Naughty Dog",
   ),
   Game(
     "Sekiro: Shadows Die Twice",
     GameImage(
-        "https://onlysp.escapistmagazine.com/wp-content/uploads/2019/03/Sekiro-Shadows-Die-Twice-logo-art.jpg",
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/capsule_616x353.jpg?t=1678991267",
         ""),
     "",
     "From Software",
@@ -74,7 +76,7 @@ List<Game> games2 = [
   Game(
     "Just Cause 4",
     GameImage(
-        "https://s3.gaming-cdn.com/images/products/2666/orig/just-cause-4-cover.jpg",
+        "https://m.media-amazon.com/images/M/MV5BMzI2NzNjYjctMmRiZS00MDRjLWFmNDQtOGQzOWVlZjVhOTg2XkEyXkFqcGdeQXVyNzg3NjQyOQ@@._V1_FMjpg_UX1000_.jpg",
         ""),
     "",
     "Avalanche Studios",

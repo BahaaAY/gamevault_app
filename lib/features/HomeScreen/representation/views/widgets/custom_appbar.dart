@@ -31,7 +31,7 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 10.w,
+            width: 22.w,
           ),
           GestureDetector(
             onTap: () {},

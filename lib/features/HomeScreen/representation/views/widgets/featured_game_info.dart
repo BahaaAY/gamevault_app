@@ -8,9 +8,12 @@ import '../../manager/featured_game_cubit/featured_games_cubit.dart';
 class FeaturedGameInfo extends StatelessWidget {
   const FeaturedGameInfo({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+
     var featuredCubit = BlocProvider.of<FeaturedGamesCubit>(context);
+    featuredCubit.startSlider();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -19,7 +22,7 @@ class FeaturedGameInfo extends StatelessWidget {
                 return Text(
                   featuredCubit.getCurrentFeatured().title,
                   style: TextStyle(
-                    fontSize: 32.sp,
+                    fontSize: 52.sp,
                     fontWeight: FontWeight.bold,
                   ),
                   maxLines: 1,

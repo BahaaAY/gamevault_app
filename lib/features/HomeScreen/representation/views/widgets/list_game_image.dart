@@ -14,24 +14,19 @@ class ListGameImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(12.w),
-      ),
-      child: AspectRatio(
-        aspectRatio: 9 / 16,
-        child: CachedNetworkImage(
-            fit: BoxFit.cover,
-            placeholder: (context, url) {
-              return const CustomCircularIndicator();
-            },
-            errorWidget: (context, url, error) {
-              return const Icon(
-                Icons.error_outline,
-                size: 32,
-              );
-            },
-            imageUrl: gameImageUrl),
-      ),
+      borderRadius: BorderRadius.circular(8),
+      child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          placeholder: (context, url) {
+            return const CustomCircularIndicator();
+          },
+          errorWidget: (context, url, error) {
+            return const Icon(
+              Icons.error_outline,
+              size: 32,
+            );
+          },
+          imageUrl: gameImageUrl),
     );
   }
 }

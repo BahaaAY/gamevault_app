@@ -6,5 +6,6 @@ part 'scrollable_games_state.dart';
 class ScrollableGamesCubit extends Cubit<ScrollableGamesState> {
   ScrollableGamesCubit() : super(ScrollableGamesInitial());
 
-  final gamesList = games;
+  final gamesList1 = games;
+  final gamesList2 = games2;
 }
