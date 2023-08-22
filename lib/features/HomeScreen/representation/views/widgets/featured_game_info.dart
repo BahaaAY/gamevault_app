@@ -17,13 +17,12 @@ class FeaturedGameInfo extends StatelessWidget {
         BlocBuilder<FeaturedGamesCubit, FeaturedGamesState>(
               builder: (context, state) {
                 return Text(
-                  "${featuredCubit.getCurrentFeatured().title}\n",
+                  featuredCubit.getCurrentFeatured().title,
                   style: TextStyle(
                     fontSize: 32.sp,
                     fontWeight: FontWeight.bold,
                   ),
-                  maxLines: 2,
-                  
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 );
               },
