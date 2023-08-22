@@ -1,15 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gamevault_app/core/models/data.dart';
+import 'package:gamevault_app/core/widgets/custom_circular_indicator.dart';
 
 class ListGameImage extends StatelessWidget {
   const ListGameImage({
     super.key,
-    required this.games,
+    required this.gameImageUrl,
   });
 
-  final List<Game> games;
+  final String gameImageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,17 @@ class ListGameImage extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 9 / 16,
         child: CachedNetworkImage(
-            fit: BoxFit.cover, imageUrl: games[0].coverImage.url),
+            fit: BoxFit.cover,
+            placeholder: (context, url) {
+              return const CustomCircularIndicator();
+            },
+            errorWidget: (context, url, error) {
+              return const Icon(
+                Icons.error_outline,
+                size: 32,
+              );
+            },
+            imageUrl: gameImageUrl),
       ),
     );
   }

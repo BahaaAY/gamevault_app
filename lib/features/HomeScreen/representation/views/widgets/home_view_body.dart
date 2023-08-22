@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gamevault_app/features/HomeScreen/representation/manager/featured_game_cubit/featured_games_cubit.dart';
+import 'package:gamevault_app/features/HomeScreen/representation/manager/scrollable_games_cubit/cubit/scrollable_games_cubit.dart';
 import 'package:gamevault_app/features/HomeScreen/representation/views/widgets/featured_games_pageview.dart';
+import 'package:gamevault_app/features/HomeScreen/representation/views/widgets/scrollable_games_list_view.dart';
 import 'custom_appbar.dart';
+import 'featured_game_banner.dart';
 import 'featured_game_info.dart';
 import 'gradient_bg.dart';
-import 'scrollable_games_list_item.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -30,7 +31,6 @@ class TopLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var games = BlocProvider.of<FeaturedGamesCubit>(context).gamesList;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
@@ -45,14 +45,15 @@ class TopLayer extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
-            ScrollableGamesListItem(games: games, showTitle: true,),
+            BlocProvider(
+              create: (context) => ScrollableGamesCubit(),
+              child: const ScrollableGamesListView(),
+            ),
+            FeaturedGameBanner(),
           ],
         ),
       ),
     );
   }
 }
-
-
-
 

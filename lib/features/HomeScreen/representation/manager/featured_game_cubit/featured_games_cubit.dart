@@ -7,7 +7,7 @@ part 'featured_games_state.dart';
 class FeaturedGamesCubit extends Cubit<FeaturedGamesState> {
   FeaturedGamesCubit() : super(FeaturedGamesInitial());
 
-  final gamesList = games;
+  final gamesList = featuredGames;
   int _index = 0; 
 
   PageController featuredGamesController =PageController(

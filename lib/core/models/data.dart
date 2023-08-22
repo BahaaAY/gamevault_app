@@ -101,7 +101,7 @@ List<Game> featuredGames = [
   Game(
     "Dragon Ball Z: Kakarot",
     GameImage(
-        "https://cdn3.dualshockers.com/wp-content/uploads/2020/01/dbx-kakarot.png",
+        "https://image.api.playstation.com/vulcan/img/cfn/11307AuFZKrw6DorTNAC3WdWnAKpEx70fOdGFLJgROeERlzQLhhUi7N1ttK_O6tq-_Kp-D9FEbVIJ0btI5-gfeGPN9Ib8vhy.png",
         ""),
     "",
     "CyberConnect2",

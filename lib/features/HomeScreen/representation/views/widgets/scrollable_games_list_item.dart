@@ -6,10 +6,10 @@ import 'list_game_image.dart';
 class ScrollableGamesListItem extends StatelessWidget {
   const ScrollableGamesListItem({
     super.key,
-    required this.games, required this.showTitle,
+    required this.game, required this.showTitle,
   });
   final bool showTitle;
-  final List<Game> games;
+  final Game game;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class ScrollableGamesListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ListGameImage(games: games),
+          ListGameImage(gameImageUrl: game.coverImage.url,),
           Text(
-            games[0].title,
+            game.title,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
@@ -37,7 +37,7 @@ class ScrollableGamesListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ListGameImage(games: games),
+          ListGameImage(gameImageUrl: game.coverImage.url,),
         ],
       ),
     );
